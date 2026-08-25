@@ -1,6 +1,21 @@
-import { Flame, MapPin, Phone, Mail, Clock, Instagram, Facebook } from 'lucide-react';
+import { Flame, MapPin, Phone, Mail, Clock, Instagram, Facebook, ExternalLink } from 'lucide-react';
+
+const openingHours = [
+  ['Domingo', '17:00 - 23:59'],
+  ['Segunda-Feira', '17:00 - 23:59'],
+  ['Terça-Feira', '17:00 - 23:59'],
+  ['Quarta-Feira', '17:00 - 23:59'],
+  ['Quinta-Feira', '17:00 - 23:59'],
+  ['Sexta-Feira', '17:00 - 23:59'],
+  ['Sábado', '17:00 - 23:59'],
+] as const;
 
 export default function Footer() {
+  const today = new Date();
+  const dayNames = ['Domingo', 'Segunda-Feira', 'Terça-Feira', 'Quarta-Feira', 'Quinta-Feira', 'Sexta-Feira', 'Sábado'];
+  const currentDay = dayNames[today.getDay()];
+  const showTodayBadge = today.getHours() < 17;
+
   return (
     <footer id="contact" className="bg-stone-950 border-t border-stone-800 pt-20 pb-8">
       <div className="max-w-7xl mx-auto px-6">
@@ -45,7 +60,6 @@ export default function Footer() {
               {[
                 { label: 'Início', href: '#home' },
                 { label: 'Cardápio', href: '#menu' },
-                { label: 'Nossa História', href: '#about' },
                 { label: 'Reservas', href: '#reservations' },
               ].map((link) => (
                 <li key={link.href}>
@@ -65,7 +79,18 @@ export default function Footer() {
             <ul className="space-y-3">
               <li className="flex items-start gap-3 text-stone-400 text-sm">
                 <MapPin className="w-4 h-4 text-amber-500 shrink-0 mt-0.5" />
-                <span>Rua das Brasas, 1234 — São Paulo, SP</span>
+                <div>
+                  <p>R Floriano Peixoto, 981</p>
+                  <p>Centro - Ubiratã/PR</p>
+                  <a
+                    href="https://www.google.com/maps/search/?api=1&query=R+Floriano+Peixoto+981+Centro+Ubirata+PR"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="mt-2 inline-flex items-center gap-1 font-bold text-amber-400 hover:text-amber-300"
+                  >
+                    Ver no mapa <ExternalLink className="h-3 w-3" />
+                  </a>
+                </div>
               </li>
               <li className="flex items-center gap-3 text-stone-400 text-sm">
                 <Phone className="w-4 h-4 text-amber-500 shrink-0" />
@@ -81,27 +106,19 @@ export default function Footer() {
           <div>
             <h3 className="text-amber-50 font-bold mb-4">Horários</h3>
             <ul className="space-y-3">
-              <li className="flex items-center gap-3 text-stone-400 text-sm">
-                <Clock className="w-4 h-4 text-amber-500 shrink-0" />
-                <div>
-                  <p className="text-stone-300">Terça a Sexta</p>
-                  <p>12h — 23h</p>
-                </div>
-              </li>
-              <li className="flex items-center gap-3 text-stone-400 text-sm">
-                <Clock className="w-4 h-4 text-amber-500 shrink-0" />
-                <div>
-                  <p className="text-stone-300">Sábado e Domingo</p>
-                  <p>11h — 00h</p>
-                </div>
-              </li>
-              <li className="flex items-center gap-3 text-stone-400 text-sm">
-                <Clock className="w-4 h-4 text-amber-500 shrink-0" />
-                <div>
-                  <p className="text-stone-300">Segunda</p>
-                  <p>Fechado</p>
-                </div>
-              </li>
+              {openingHours.map(([day, hours]) => (
+                <li key={day} className="flex items-center justify-between gap-4 text-sm">
+                  <span className="text-stone-300">{day}</span>
+                  <span className="flex items-center gap-2 text-stone-400">
+                    {showTodayBadge && day === currentDay && (
+                      <span className="rounded bg-amber-500 px-1.5 py-0.5 text-[9px] font-bold text-stone-950">
+                        HOJE
+                      </span>
+                    )}
+                    <span>{hours}</span>
+                  </span>
+                </li>
+              ))}
             </ul>
           </div>
         </div>

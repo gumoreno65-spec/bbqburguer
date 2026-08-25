@@ -1,70 +1,38 @@
-import { Flame, UtensilsCrossed, Star } from 'lucide-react';
+import { ArrowDownRight } from 'lucide-react';
 
 export default function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative flex min-h-[760px] items-end overflow-hidden border-b editorial-rule pb-12 pt-32 md:min-h-screen"
     >
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 z-0 bg-[#0b0b0b]">
         <img
-          src="https://images.pexels.com/photos/20042199/pexels-photo-20042199.jpeg?auto=compress&cs=tinysrgb&w=1920"
-          alt="Burgers na chama"
-          className="w-full h-full object-cover"
+          src="/hero-grill.png"
+          alt="Carne grelhada sobre brasas"
+          className="h-full w-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-stone-950/80 via-stone-950/60 to-stone-950" />
-        <div className="absolute inset-0 bg-gradient-to-r from-stone-950/70 to-transparent" />
+        <div className="absolute inset-0 bg-black/45" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0b0b0b] via-transparent to-black/30" />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 text-center pt-20">
-        <div className="inline-flex items-center gap-2 bg-amber-500/10 border border-amber-500/30 rounded-full px-4 py-1.5 mb-6 animate-fade-in-up">
-          <Flame className="w-4 h-4 text-amber-500" />
-          <span className="text-amber-400 text-xs font-semibold tracking-widest uppercase">
-            Chama aberta desde 2018
+      <div className="relative z-10 mx-auto w-full max-w-[1360px] px-8">
+        <h1 className="font-display mt-2 max-w-4xl text-[clamp(4.5rem,13vw,11rem)] font-black leading-[0.78] text-[#f1e8d7]">
+          BBQ<span className="text-[#ed4b00]">.</span>
+          <span className="mt-5 block text-[clamp(1.6rem,3.5vw,3.5rem)] leading-none tracking-[0.08em] text-[#f1e8d7]">
+            HAMBURGUERIA
           </span>
-        </div>
-
-        <h1 className="font-display text-5xl sm:text-7xl md:text-8xl font-extrabold text-amber-50 leading-[1.05] mb-6 animate-fade-in-up animation-delay-100">
-          O sabor da
-          <br />
-          <span className="text-amber-500">brasa</span> em cada
-          <br />
-          mordida.
         </h1>
-
-        <p className="text-stone-300 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed animate-fade-in-up animation-delay-200">
-          Hambúrgueres artesanais, carne nobre selada na chama aberta e molhos
-          defumados que viciam. Bem-vindo à BBQ Hamburgueria.
-        </p>
-
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in-up animation-delay-300">
+        <div className="mt-8 flex flex-col justify-between gap-8 border-t editorial-rule pt-5 md:flex-row md:items-end">
+          <p className="max-w-lg text-lg leading-relaxed text-[#e5ddd2] md:text-xl">
+            Hambúrguer artesanal, fogo de verdade e nenhuma pressa. O sabor começa onde a fumaça encontra a carne.
+          </p>
           <a
             href="#menu"
-            className="group inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-stone-950 font-bold text-base px-8 py-4 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-amber-500/30"
+            className="inline-flex items-center gap-8 rounded-xl bg-[#0b0b0b] px-7 py-5 text-sm font-bold text-[#f1e8d7] transition-colors hover:bg-[#ed4b00] hover:text-[#0b0b0b]"
           >
-            <UtensilsCrossed className="w-5 h-5" />
-            Ver Cardápio
+            VER O CARDÁPIO <ArrowDownRight className="h-5 w-5" />
           </a>
-          <a
-            href="#reservations"
-            className="inline-flex items-center gap-2 border border-stone-600 hover:border-amber-500 text-amber-50 font-bold text-base px-8 py-4 rounded-full transition-all duration-300 hover:bg-stone-900/50"
-          >
-            Reservar Mesa
-          </a>
-        </div>
-
-        <div className="flex items-center justify-center gap-6 mt-14 animate-fade-in-up animation-delay-400">
-          <div className="flex items-center gap-1">
-            {[...Array(5)].map((_, i) => (
-              <Star
-                key={i}
-                className="w-5 h-5 text-amber-500 fill-amber-500"
-              />
-            ))}
-          </div>
-          <span className="text-stone-400 text-sm">
-            4.9 / 5 — mais de 2.500 avaliações
-          </span>
         </div>
       </div>
 
