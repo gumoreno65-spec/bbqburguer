@@ -10,7 +10,7 @@ export default function Hero() {
         <img
           src="/hero-grill.png"
           alt="Carne grelhada sobre brasas"
-          className="h-full w-full object-cover"
+          className="animate-hero-burger h-full w-full object-cover"
         />
         <div className="absolute inset-0 bg-black/45" />
         <div className="absolute inset-0 bg-gradient-to-t from-[#0b0b0b] via-transparent to-black/30" />
