@@ -45,9 +45,9 @@ export default function App() {
   const cartTotal = cart.reduce((total, entry) => total + entry.total * entry.quantity, 0);
 
   return (
-    <div className="min-h-screen bg-stone-950 text-stone-100 antialiased">
+    <div className="min-h-screen bg-stone-950 text-stone-100 antialiased" translate="no">
       <Navbar cartCount={cart.length} onOpenCart={() => setCartOpen(true)} />
-      <main>
+      <main translate="no">
         <Hero />
         <Menu onAddToCart={addToCart} />
         <About />

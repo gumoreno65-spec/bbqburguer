@@ -8,11 +8,13 @@
   html {
     scroll-behavior: smooth;
   }
+
   body {
     margin: 0;
     background: #0b0b0b;
     color: #f1e8d7;
     font-family: 'DM Sans', sans-serif;
+    min-height: 100vh;
   }
 }
 
@@ -68,7 +70,8 @@
 }
 
 @keyframes hero-burger-motion {
-  0%, 100% {
+  0%,
+  100% {
     transform: scale(1.02) translate3d(0, 0, 0);
   }
   50% {
@@ -82,11 +85,13 @@
 }
 
 @keyframes hero-light-sweep {
-  0%, 55% {
+  0%,
+  55% {
     opacity: 0;
     transform: translateX(-100%);
   }
-  70%, 100% {
+  70%,
+  100% {
     opacity: 1;
     transform: translateX(100%);
   }
@@ -118,14 +123,17 @@
   animation-delay: 0.1s;
   opacity: 0;
 }
+
 .animation-delay-200 {
   animation-delay: 0.2s;
   opacity: 0;
 }
+
 .animation-delay-300 {
   animation-delay: 0.3s;
   opacity: 0;
 }
+
 .animation-delay-400 {
   animation-delay: 0.4s;
   opacity: 0;
@@ -134,86 +142,16 @@
 ::-webkit-scrollbar {
   width: 10px;
 }
+
 ::-webkit-scrollbar-track {
   background: #1c1917;
 }
+
 ::-webkit-scrollbar-thumb {
   background: #78350f;
   border-radius: 5px;
 }
-::-webkit-scrollbar-thumb:hover {
-  background: #ed4b00;
-}
 
-@layer components {
-  .editorial-rule {
-    border-color: transparent;
-  }
-
-  .editorial-link {
-    position: relative;
-  }
-
-  .editorial-link::after {
-    background: #ed4b00;
-    bottom: -8px;
-    content: '';
-    height: 1px;
-    left: 0;
-    position: absolute;
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 220ms ease;
-    width: 100%;
-  }
-
-  .editorial-link:hover::after {
-    transform: scaleX(1);
-  }
-}
-
-@keyframes fade-in-up {
-  from {
-    opacity: 0;
-    transform: translateY(24px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.animate-fade-in-up {
-  animation: fade-in-up 0.8s ease-out forwards;
-}
-
-.animation-delay-100 {
-  animation-delay: 0.1s;
-  opacity: 0;
-}
-.animation-delay-200 {
-  animation-delay: 0.2s;
-  opacity: 0;
-}
-.animation-delay-300 {
-  animation-delay: 0.3s;
-  opacity: 0;
-}
-.animation-delay-400 {
-  animation-delay: 0.4s;
-  opacity: 0;
-}
-
-::-webkit-scrollbar {
-  width: 10px;
-}
-::-webkit-scrollbar-track {
-  background: #1c1917;
-}
-::-webkit-scrollbar-thumb {
-  background: #78350f;
-  border-radius: 5px;
-}
 ::-webkit-scrollbar-thumb:hover {
   background: #ed4b00;
 }
